@@ -17,8 +17,23 @@ namespace WebApplication1
             CreateWebHostBuilder(args).Build().Run();
         }
 
+        //public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+        //    WebHost.CreateDefaultBuilder(args)
+        //        .UseStartup<Startup>();
+
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>();
+            .CaptureStartupErrors(true)
+            .UseSetting("detailedErrors", "true")
+            .UseStartup<Startup>();
+            
+                
+
+        //public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+        //WebHost.CreateDefaultBuilder(args)
+        //    .CaptureStartupErrors(true)
+        //    .UseSetting("detailedErrors", "true")
+        //    .UseStartup<Startup>()
+        //    .Build();
     }
 }
